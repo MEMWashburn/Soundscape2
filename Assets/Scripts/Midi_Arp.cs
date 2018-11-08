@@ -38,6 +38,8 @@ public class Midi_Arp : MonoBehaviour {
             Color c = Random.ColorHSV();
             matCol.color = curCol = ObjectColor = c;
             this.GetComponent<Renderer>().material = matCol;
+
+
         }
 	}
 
