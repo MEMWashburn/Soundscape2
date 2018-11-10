@@ -13,7 +13,7 @@ public class Midi_Arp : MonoBehaviour {
     private AudioReverbFilter arf;
     private AudioEchoFilter aef;
     private AudioDistortionFilter adf;
-    private AudioSource asrc;
+    public AudioSource asrc;
 
     public KeyCode key;
     bool active = false;
@@ -28,6 +28,8 @@ public class Midi_Arp : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(key))//&& active
         {
+            asrc.Play();
+
             print(key);
             //helps stop memory leaks
             if (matCol != null)
@@ -38,8 +40,6 @@ public class Midi_Arp : MonoBehaviour {
             Color c = Random.ColorHSV();
             matCol.color = curCol = ObjectColor = c;
             this.GetComponent<Renderer>().material = matCol;
-
-
         }
 	}
 
