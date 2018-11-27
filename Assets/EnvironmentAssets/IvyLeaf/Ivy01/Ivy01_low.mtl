@@ -1,0 +1,17 @@
+newmtl blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Ivy01_diffuse.png
+bump Ivy01_bump.png -bm 0.05
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks Ivy03_spec.png
+newmtl lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd Ivy_Root.png
+Ni 1.00
