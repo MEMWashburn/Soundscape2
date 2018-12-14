@@ -4,7 +4,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioPeer : MonoBehaviour {
-    AudioSource _audioSource;
+    public AudioSource _audioSource;
+    public AudioClip[] _songs;
+    public int song = 0; // Set to private
     public static float[] _samples = new float[512];
     public static float[] _freqBand = new float[8];
     public static float[] _bandBuffer = new float[8];
@@ -20,7 +22,10 @@ public class AudioPeer : MonoBehaviour {
     // Use this for initialization
     void Start () {
         _audioSource = GetComponent<AudioSource>();
-	}
+
+        _audioSource.clip = _songs[song];
+        _audioSource.Play();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,6 +36,25 @@ public class AudioPeer : MonoBehaviour {
 
     void GetSpectrumAudioSource()
     {
+        // returns true if the primary button (typically “A”) is currently pressed.
+        if ((OVRInput.Get(OVRInput.Button.One) || Input.GetKeyDown(KeyCode.A)) && song < _songs.Length)
+        {
+            song++;
+            if (song > _songs.Length - 1) song = 0; // wrap down
+            print("Song: " + song);
+            Start();
+        }
+
+        // returns true if the primary button (typically “X”) is currently pressed.
+        if ((OVRInput.Get(OVRInput.Button.Two) || Input.GetKeyDown(KeyCode.X)) && song >= 0)
+        {
+            song--;
+            if (song < 0) song = _songs.Length - 1; // wrap up
+            print("Song: " + song);
+            Start();
+        }
+
+
         // FFTWindow.etc: Different leakage filters of spectrum data
         _audioSource.GetSpectrumData(_samples, 0, FFTWindow.Blackman);
     }
