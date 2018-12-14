@@ -2446,6 +2446,14 @@ MonoBehaviour:
   - {fileID: 331870168}
   - {fileID: 262266129}
   beat: 1.1428572
+  _bpms:
+  - 79
+  - 142
+  - 109
+  - 129
+  - 182
+  - 95
+  song: 0
 --- !u!4 &969859919
 Transform:
   m_ObjectHideFlags: 0
@@ -3796,7 +3804,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0cb8add974dbaa84c91a74af53e3e1ad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 27.611
+      value: 25.17
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 0cb8add974dbaa84c91a74af53e3e1ad, type: 3}
       propertyPath: m_LocalPosition.z
